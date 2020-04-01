@@ -1,0 +1,24 @@
+<section class="game_id" *ngIf="code_partie == ''">
+	<div class="modal">
+		<div class="header">
+			<h4>Code jeu</h4>
+		</div>
+		<div class="body">
+			<div class="input-group">
+				<label>Entrez le code de votre partie</label>
+				<input type="text" [(ngModel)]="temporary_code_partie">
+			</div>
+		</div>
+		<div class="footer">
+			<a class="button" (click)="get_guilty()">Envoyer</a>
+		</div>
+	</div>
+	
+</section>
+
+<ul>
+	<li *ngFor="let cards of guilty_content.cards">
+		<img src="../../../assets/illustrations/{{cards.illustration}}"/>
+		<p>{{cards.name}}</p>
+	</li>
+</ul>

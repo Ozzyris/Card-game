@@ -1,0 +1,22 @@
+{
+  "name": "onle-board-game",
+  "version": "0.0.1",
+  "description": "some good board game adapted for online use.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "author": "Alexandre Nicol",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "*",
+    "body-parser": "*",
+    "express": "*",
+    "moment": "*",
+    "mongoose": "*",
+    "morgan": "*",
+    "socket.io": "^2.3.0",
+    "uuid": "*"
+  }
+}

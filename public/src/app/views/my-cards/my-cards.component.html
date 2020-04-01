@@ -1,0 +1,125 @@
+<section class="game_id" *ngIf="code_partie == ''">
+	<div class="modal">
+		<div class="header">
+			<h4>Code jeu</h4>
+		</div>
+		<div class="body">
+			<div class="input-group">
+				<label>Entrez le code de votre partie</label>
+				<input type="text" [(ngModel)]="temporary_code_partie">
+			</div>
+		</div>
+		<div class="footer">
+			<a class="button" (click)="get_cards()">Envoyer</a>
+		</div>
+	</div>
+</section>
+
+<section class="confirmation_known"  *ngIf="is_confirmation_modal_displayed">
+	<div class="modal">
+		<div class="header">
+			<h4>Êtes-vous sure de connaître les coupables?</h4>
+			<p>Révéler les cartes des coupables vous éliminera automatiquement de la partie si vous avez tort.</p>
+		</div>
+		<div class="footer">
+			<a class="confirm" (click)="get_guilty_cards()">Je suis sûre</a>
+			<a class="cancel" (click)="is_confirmation_modal_displayed = false">Annuler</a>
+		</div>
+	</div>
+</section>
+
+<section class="guilty_modal" *ngIf="is_guilty_modal_displayed">
+	<div class="modal">
+		<div class="header">
+			<h4>Voici les coupables</h4>
+		</div>
+		<div class="body">
+			<ul>
+				<li *ngFor="let cards of guilty_content.cards">
+					<img src="../../../assets/illustrations{{cards.illustration}}"/>
+					<p>{{cards.name}}</p>
+				</li>
+			</ul>
+		</div>
+		<div class="footer">
+			<a class="button" (click)="is_guilty_modal_displayed = false">close</a>
+		</div>
+	</div>
+</section>
+
+<section class="dashboard">
+	<div class="menu">
+		<div class="inner_container">
+			<img src="../../../assets/logo.jpg" alt="logo">
+			<p>{{player_content.name}}</p>
+		</div>
+	</div>
+	<div class="body">
+		<div class="content">
+			<div class="action_bar">
+				<a class="button" (click)="is_confirmation_modal_displayed = true" >Je connais le coupable</a>
+				<a class="button_grey" (click)="launch_external_url()" >Carnet de détective</a>
+				<a class="button_grey" (click)="launch_plateau()" >Plateau Cluedo</a>
+			</div>
+			<div class="inner_container">
+				<ul>
+					<li *ngFor="let cards of player_content.cards">
+						<img src="../../../assets/illustrations{{cards.illustration}}"/>
+						<p>{{cards.name}}</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="left_bar">
+			<div class="activity">
+				<div class="players" [ngClass]="{'closed': is_player_hidden}">
+					<div class="inner_header" (click)="is_player_hidden = !is_player_hidden">
+						<h4>Joueur <span>({{online_player}}/{{total_player}} online)</span></h4>
+						<span class="arrow"></span>
+					</div>
+					<div class="inner_body">
+						<ul>
+							<li *ngFor="let player of all_players | status_filter">
+								<span [ngClass]="player.status"></span>
+								<p>{{player.name}}</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="updates" [ngClass]="{'open': is_player_hidden}">
+					<div class="inner_header">
+						<h4>Activity <span>( {{last_activity | amTimeAgo}} )</span></h4>
+					</div>
+					<div class="inner_body">
+						<ul>
+							<li *ngFor="let activity of activities" [ngClass]="{'new': activity.status == 'new'}">
+								<p [innerHtml]="activity.content"></p>
+								<p class="time" [innerHtml]="activity.timestamp | amTimeAgo"></p>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="dices">
+				<div class="dices_container">
+					<span class='dice1' [innerHTML]="dice_1_value"></span>
+    				<span class='dice2' [innerHTML]="dice_2_value"></span>
+				</div>
+				<a class="button" (click)="throw_dices()">Lancer les dés</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+

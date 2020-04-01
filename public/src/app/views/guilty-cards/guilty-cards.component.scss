@@ -1,0 +1,94 @@
+section.game_id{
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: rgba(0,0,0,0.8);
+
+	div.modal{
+		width: 500px;
+		background-color: #fff;
+		box-shadow: 0px 0px 6px rgba(0,0,0,.5);
+		min-height: 200px;
+		margin: 20% auto;
+		border-radius: 5px;
+
+		div.header{
+			border-radius: 5px 5px 0 0;
+			width: 100%;
+			height: auto;
+			border-bottom: 1px solid #F2F2F2;
+
+			h4{
+				font-size: 16px;
+				line-height: 40px;
+				padding: 0 0 0 16px;
+				margin: 0;
+				font-family: helvetica, arial; 
+				color: #191919;
+				font-style: 14px;
+			}
+		}
+		div.body{
+			width: 100%;
+			height: auto;
+
+			div.input-group{
+				margin: 42px 16px;
+
+				label{
+					font-family: helvetica, arial;
+					font-size: 12px;
+					font-weight: 800;
+	
+				}
+				input{
+					padding: 8px 12px;
+					border-radius: 3px;
+					font-family: helvetica, arial;
+					font-size: 16px;
+					width: calc(100% - 56px);
+					border: 1px solid #CCCCCC;
+				}
+			}
+		}
+		div.footer{
+			border-radius: 0 0 5px 5px;
+			width: 100%;
+			height: auto;
+			border-top: 1px solid #F2F2F2;
+			overflow: auto;
+
+			a.button{
+				float: right;
+				padding: 8px 12px;
+				background-color: rgb(95, 170, 239);
+				border-radius: 3px;
+				line-height: 25px;
+				margin: 12px 16px 12px 0;
+				font-family: helvetica, arial; 
+				color: white;
+				cursor: pointer;
+				transition: all 200ms;
+
+				&:hover{
+					background-color: lighten(rgb(95, 170, 239), 10%);
+				}
+			}
+		}
+	}
+}
+
+
+
+ul{
+	li{
+		float: left;
+		width: 25%;
+
+		img{
+			width: 100%;
+		}
+	}
+}
