@@ -32,7 +32,7 @@ export class MyCardsComponent implements OnInit {
     code_partie: string = '';
     guilty_content: any;
     
-    //Dices
+    //Dices 
     dices: any = ['&#9856;', '&#9857;', '&#9858;', '&#9859;', '&#9860;', '&#9861;' ];
     dice_1_value: string = '&#9856;';
     dice_2_value: string = '&#9856;';
