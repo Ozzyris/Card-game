@@ -30,7 +30,7 @@ var game = new mongoose.Schema({
     },
     activity: [
         {
-            author: {type: String},
+            author_id: {type: String},
             content: {type: String},
             timestamp: {type: Date, default: moment()},
             status: {type: String, default: ''}
